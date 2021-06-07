@@ -160,6 +160,12 @@ html {
     right:1em
   }
 }
+.imageSlider .glide__slides {
+  width:100%!important
+}
+.imageSlider .glide__slide {
+  max-width:100%!important
+}
 .imageSlider .glide__slide:before {
   display:none
 }

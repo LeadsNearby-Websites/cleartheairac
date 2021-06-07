@@ -204,7 +204,17 @@ html {
             }
         }
 
+        // &__track {
+        //     max-width: 100% !important;
+        // }
+
+        &__slides {
+            width: 100% !important;
+        }
+
         &__slide {
+            max-width: 100% !important;
+
             &:before {
                 display: none;
             }

@@ -81,10 +81,10 @@ function output_footer() {
 </section>
 <section class="dlSocial">
     <div class="dlSocial__grid">
-        <a class="dlSocial__link" href="https://www.facebook.com/doublelplumbingservice/" target="_blank"><fa-icon icon="facebook-f" family="brands"></fa-icon></a>
-        <a class="dlSocial__link" href="https://www.google.com/search?rlz=1C1CHZL_enUS780US780&ei=BV5rWuCvM8PqjwOFzaz4Cw&q=double+l+plumbing+azle+tx&oq=double+l+plumbing+azle&gs_l=psy-ab.3.0.0j0i22i30k1l2.635346.637285.0.638385.9.4.2.3.4.0.130.466.0j4.4.0....0...1c.1.64.psy-ab..0.9.500...0i13k1j0i13i30k1.0.-NCc7OiyUXI" target="_blank"><fa-icon icon="google" family="brands"></fa-icon></a>
-        <a class="dlSocial__link" href="https://www.instagram.com/doublelplumbingservice/?hl=en" target="_blank"><fa-icon icon="instagram" family="brands"></fa-icon></a>
-        <a class="dlSocial__link" href="https://www.yelp.com/biz/double-l-plumbing-azle-2" target="_blank"><fa-icon icon="yelp" family="brands"></fa-icon></a>
+        <a class="dlSocial__link" rel="noreferrer" href="https://www.facebook.com/doublelplumbingservice/" target="_blank"><fa-icon icon="facebook-f" family="brands"></fa-icon></a>
+        <a class="dlSocial__link" rel="noreferrer" href="https://www.google.com/search?rlz=1C1CHZL_enUS780US780&ei=BV5rWuCvM8PqjwOFzaz4Cw&q=double+l+plumbing+azle+tx&oq=double+l+plumbing+azle&gs_l=psy-ab.3.0.0j0i22i30k1l2.635346.637285.0.638385.9.4.2.3.4.0.130.466.0j4.4.0....0...1c.1.64.psy-ab..0.9.500...0i13k1j0i13i30k1.0.-NCc7OiyUXI" target="_blank"><fa-icon icon="google" family="brands"></fa-icon></a>
+        <a class="dlSocial__link" rel="noreferrer" href="https://www.instagram.com/doublelplumbingservice/?hl=en" target="_blank"><fa-icon icon="instagram" family="brands"></fa-icon></a>
+        <a class="dlSocial__link" rel="noreferrer" href="https://www.yelp.com/biz/double-l-plumbing-azle-2" target="_blank"><fa-icon icon="yelp" family="brands"></fa-icon></a>
     </div>
 </section>
 <section class="dlCopyright">
