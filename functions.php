@@ -1,4 +1,10 @@
 <?php
+
+/*! -------------------------
+DO NOT TOUCH THIS CODE
+If you need to edit code within this file please contact a certified LeadsNearby Developer
+------------------------- */
+
 function child_theme_enqueue_styles() {
   wp_enqueue_style('hypercore-child', get_stylesheet_directory_uri() . '/dist/css/style.min.css', array('hypercore'), null, false);
 }
