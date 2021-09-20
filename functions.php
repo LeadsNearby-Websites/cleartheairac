@@ -7,6 +7,7 @@ If you need to edit code within this file please contact a certified LeadsNearby
 
 function child_theme_enqueue_styles() {
   wp_enqueue_style('hypercore-child', get_stylesheet_directory_uri() . '/dist/css/style.min.css', array('hypercore'), null, false);
+  hypercore\ScriptLoader::load_script('counter', get_stylesheet_directory_uri() . '/dist/js/counter.js', array(), null, true, true);
 }
 add_action('wp_enqueue_scripts', 'child_theme_enqueue_styles');
 
@@ -28,3 +29,10 @@ if (file_exists(get_stylesheet_directory() . '/inc/custom-footer.php')) {include
 if (file_exists(get_stylesheet_directory() . '/inc/shortcodes.php')) {include_once get_stylesheet_directory() . '/inc/shortcodes.php';}
 
 /* All other misc code that does not fall into one of the included files can be added below */
+//Fallback Blog Image
+add_filter('post_thumbnail_html', function ($html, $post_id, $thumb_id, $size, $attr) {
+  if (empty($html) && get_post_type($post_id) === 'post') {
+    return wp_get_attachment_image(16, $size, false, $attr);
+  }
+  return $html;
+}, 10, 5);

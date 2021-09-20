@@ -4,11 +4,12 @@ Template: hypercore
 Developer:
 */
 
-$url: 'https://hypercore.local';
-$themeDir: '#{$url}/wp-content/themes/hypercore-child';
-$contentDir: '#{$url}/wp-content/uploads';
+$url: "https://www.cleartheairac.com/";
+$themeDir: "#{$url}/wp-content/themes/hypercore-child";
+$contentDir: "#{$url}/wp-content/uploads";
 
-@import 'parts/_mixins';
+@import "parts/_mixins";
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap");
 
 /*! -------------------------
    DO NOT TOUCH THIS CODE
@@ -16,28 +17,1391 @@ $contentDir: '#{$url}/wp-content/uploads';
    Changes to this particular file should be made in the style.scss sheet by a developer
 ------------------------- */
 
-/*! -------------------------
-   Variables
-------------------------- */
-:root {
+// Variables
+
+$blue: #003963;
+$faded-blue: #12476e;
+$cyan: #0094d0;
+$orange: #e34b21;
+$light-green: #c4de9d;
+$green: #42a020;
+
+// Main Styles
+body {
+  font-family: "Lato", sans-serif;
+  background-color: $blue;
+  color: #fff;
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include mq("1060px", max) {
+    background-size: cover;
+    background-position: center;
+  }
+
+  main {
+    a:not(.hypercore-button):not(.phone-num):not(.reviewLink) {
+      color: #fff;
+      text-decoration: underline;
+
+      & * {
+        color: #fff;
+      }
+
+      &:hover {
+        color: $orange;
+
+        & * {
+          color: $orange;
+        }
+      }
+    }
+  }
+
+  h1 {
+    margin-bottom: 0.3em;
+  }
 }
 
-/*! -------------------------
-   Main Stylez
-------------------------- */
+.green-text,
+.green-text * {
+  color: $light-green;
 
-/*! -------------------------
-   Header Stylez
-------------------------- */
+  & * {
+    color: $light-green;
+  }
+}
 
-/*! -------------------------
-   Title Bar Stylez
-------------------------- */
+.bold-text,
+.bold-text * {
+  font-weight: 700;
+}
 
-/*! -------------------------
-   Sidebar Stylez
-------------------------- */
+.italic-text,
+.italic-text * {
+  font-style: italic;
+}
 
-/*! -------------------------
-   Footer Stylez
-------------------------- */
+.centered-text {
+  text-align: center;
+}
+
+.display-block {
+  display: block;
+}
+
+.lnbHeading {
+  &--med {
+    display: block;
+    font-size: clamp(1rem, 7vw, 1.4em);
+  }
+
+  &--big {
+    display: block;
+    font-size: 1.75em;
+    font-size: clamp(1rem, 6.75vw, 1.75em);
+
+    .phone-num {
+      color: #c4de9d;
+    }
+  }
+}
+
+.hypercore-button {
+  box-shadow: unset !important;
+  background: $orange;
+  padding: 0.5em 1.7em;
+  border-radius: 2em;
+  display: inline-block !important;
+  margin: 1em 0;
+  color: #fff !important;
+
+  &:hover {
+    background: darken($color: $orange, $amount: 10%);
+  }
+}
+
+.lnbBtn {
+  @extend .hypercore-button;
+
+  &--green {
+    background: $green;
+
+    &:hover {
+      background: darken($color: $green, $amount: 10%);
+    }
+  }
+}
+
+.lnbTaglineImages {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &__cs {
+    max-width: 16.25em;
+    min-height: 19px;
+  }
+
+  &__wp {
+    max-width: 11.875em;
+    min-height: 55px;
+  }
+
+  @mixin twoRowTagline {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .lnbTaglineImages__cs {
+      margin-bottom: 0.85em;
+    }
+  }
+
+  &--twoRow {
+    @include twoRowTagline();
+  }
+
+  @include mq("1060px", "max") {
+    @include twoRowTagline();
+    min-height: 86px;
+  }
+}
+
+.lnbReviewsWidget {
+  text-align: left !important;
+  padding: 0.25em 0 0.75em !important;
+
+  &__title {
+    display: none !important;
+  }
+
+  &__stars {
+    margin: 0 !important;
+
+    path {
+      fill: #e7ab23 !important;
+      stroke: black !important;
+      stroke-width: 0.25px !important;
+    }
+  }
+
+  &__data {
+    color: #fff;
+  }
+}
+
+.lnbStyledPhone {
+  .phone-num {
+    background: $cyan;
+    color: #fff;
+    padding: 0.5em 1em;
+    display: inline-block;
+    font-size: 1.5em;
+    margin-bottom: 0.75em;
+
+    fa-icon {
+      margin-right: 0.15em;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.lnbArrowHover {
+  &__arrow {
+    margin-left: 0.25em;
+  }
+
+  &:hover,
+  &:focus {
+    .lnbArrowHover__arrow {
+      animation-name: hvr-wobble-horizontal;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+@keyframes hvr-wobble-horizontal {
+  16.65% {
+    -webkit-transform: translateX(4px);
+    transform: translateX(4px);
+  }
+  33.3% {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+  }
+  49.95% {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px);
+  }
+  66.6% {
+    -webkit-transform: translateX(-1px);
+    transform: translateX(-1px);
+  }
+  83.25% {
+    -webkit-transform: translateX(1px);
+    transform: translateX(1px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.v8Form {
+  color: black;
+
+  &__heading {
+    background: linear-gradient(90deg, #{$blue} 0, #{$cyan} 100%) !important;
+  }
+
+  &__button {
+    background: $cyan !important;
+  }
+}
+
+.v8Fields {
+  &__radio {
+    &-single {
+      span {
+        color: $cyan !important;
+        border: 1px solid $cyan;
+      }
+
+      &.v8-radio-selected {
+        span {
+          color: #fff !important;
+          background: $cyan !important;
+        }
+      }
+    }
+  }
+}
+
+.lnbFormBox {
+  background: #efefef;
+  border: 1px solid #ccc;
+  padding: 3em 0 3em 2em;
+  max-width: 1100px !important;
+  margin: 2em auto !important;
+  display: block;
+  box-shadow: 0 3px 6px #00000029;
+  color: black;
+
+  .gform_wrapper {
+    padding-right: 2em;
+  }
+
+  .gform_legacy_markup_wrapper {
+    padding-right: 1em;
+  }
+
+  &__heading {
+    font-size: clamp(1.8em, 7.33vw, 2.5em) !important;
+    font-weight: 600 !important;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: $blue;
+    margin-bottom: 0.75em !important;
+  }
+
+  .gsection_title,
+  .gform_title {
+    font-size: clamp(1.8em, 6.5vw, 2em) !important;
+    font-weight: 600 !important;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: $blue;
+    margin-bottom: 0.25em !important;
+  }
+
+  &__content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__form {
+    // Progress Bar Styles
+    .gf_progressbar_percentage {
+      background: $blue !important;
+
+      span {
+        color: #fff;
+      }
+    }
+
+    .gfield {
+      margin-bottom: 0 !important;
+    }
+
+    .ginput_complex {
+      .ginput_full,
+      .ginput_left,
+      .ginput_right {
+        margin-bottom: 1em !important;
+      }
+
+      span {
+        &:last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+    }
+
+    // File upload styles
+    .ginput_container_fileupload {
+      input {
+        border: none !important;
+      }
+    }
+
+    .gfield_radio {
+      display: flex;
+      flex-wrap: wrap;
+
+      li {
+        margin-right: 1em !important;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .gchoice {
+      flex-grow: 1;
+    }
+
+    .gsection,
+    .gform_page_footer {
+      border: none !important;
+    }
+
+    .button {
+      height: unset !important;
+      border: none;
+      @extend .hypercore-button;
+      font-size: 1.15em !important;
+      text-transform: capitalize;
+      margin-top: 2em !important;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    padding: 2em 1em 3em;
+  }
+}
+
+// End Main Styles
+// Header Styles
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+
+  .admin-bar & {
+    top: 32px;
+  }
+}
+
+.lnbCustHeader {
+  background: transparentize($color: $blue, $amount: 0.15);
+  padding-right: 1em;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 300px auto auto;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    .nav {
+      &--main {
+        background-color: unset !important;
+      }
+
+      &__menu {
+        > .menu-item {
+          > a {
+            padding: 2em 0.5em !important;
+            color: #fff !important;
+            border-bottom: 2px solid transparent;
+
+            &:hover {
+              border-color: $orange;
+            }
+          }
+
+          > .sub-menu {
+            left: 0;
+
+            .sub-menu {
+              top: -2px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__content {
+    padding: 1.25em 0 0.5em;
+    text-align: center;
+
+    &-phone {
+      font-size: 1.4em;
+
+      span {
+        margin: 0 0.125em;
+      }
+
+      .phone-num {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &-btns {
+      .hypercore-button {
+        min-width: 9em;
+        margin: 1em 0.25em;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1370px) {
+    font-size: 13.5px;
+
+    &__grid {
+      grid-template-columns: 200px auto auto;
+      max-width: 1065px;
+    }
+  }
+
+  @media screen and (max-width: 1060px) {
+    display: none;
+  }
+}
+
+.lnbMobileBar {
+  background: $blue;
+  display: none;
+  padding: 0.5em 0.5em;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  grid-gap: 0.5em;
+
+  &__btn {
+    text-align: center;
+    padding: 0.3em 0.5em;
+
+    &-text {
+      font-size: 0.7em;
+      color: #fff;
+    }
+
+    fa-icon {
+      display: block;
+      font-size: 1.3em;
+
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+
+    &--green {
+      background: $green;
+    }
+
+    &--blue {
+      background: $cyan;
+    }
+
+    &--orange {
+      background: $orange;
+      position: relative;
+
+      .hypercore-button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        margin: 0;
+      }
+    }
+
+    &--nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      #hypercore-toggle {
+        padding: 0;
+
+        fa-icon {
+          font-size: 2em;
+        }
+      }
+    }
+  }
+
+  @include mq("1060px", "max") {
+    display: grid;
+  }
+}
+
+.lnbMobileLogo {
+  text-align: center;
+  display: none;
+  padding: 1em 1em 0;
+  min-height: 130px;
+
+  img {
+    min-height: 100px;
+  }
+
+  @include mq("1060px", "max") {
+    display: block;
+  }
+}
+
+.hypercore-nav-overlay {
+  & * {
+    color: black;
+  }
+}
+
+// End Header Styles
+// Homepage Styles
+.lnbContainedSplit {
+  padding: 4em 1em;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1100px;
+    margin: 0 auto;
+    grid-gap: 4em;
+  }
+
+  &__content {
+    .lnbHeading {
+      &--big {
+        margin-bottom: 1.2em;
+      }
+    }
+
+    .rplg {
+      &-businesses {
+        display: none !important;
+      }
+
+      &-col {
+        margin: 0 !important;
+      }
+
+      &-box-content {
+        height: 172px !important;
+      }
+    }
+
+    &--center {
+      display: flex;
+      align-items: center;
+    }
+
+    &--shiftRight {
+      display: flex;
+      justify-content: flex-end;
+
+      .unflex {
+        max-width: 400px;
+      }
+    }
+  }
+
+  &__img {
+    img {
+      max-width: 500px;
+      margin: 0 auto;
+      display: block;
+      width: 100%;
+    }
+  }
+
+  @include mq("1060px", max) {
+    padding: 1em 0 2em;
+
+    &__grid {
+      grid-template-columns: 1fr;
+      grid-gap: 2.5em;
+    }
+
+    &__content {
+      &-tagline {
+        padding: 0 1em;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .lnbReviewsWidget {
+        text-align: center !important;
+        padding: 0.25em 1em 0.75em !important;
+      }
+
+      .lnbStyledPhone {
+        .phone-num {
+          display: block;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      .lnbHeading--big,
+      .lnbHeading--med {
+        padding: 1.5rem;
+        margin-bottom: 0;
+      }
+
+      .hypercore-button {
+        margin: 0 1.5rem;
+      }
+
+      p {
+        padding: 0 1em;
+      }
+
+      .rplg {
+        padding: 0 1em;
+      }
+
+      &--shiftRight {
+        .unflex {
+          max-width: 100%;
+        }
+      }
+    }
+
+    &__img {
+      padding: 0 1em;
+    }
+  }
+}
+
+.lnbServiceIcons {
+  padding: 1em;
+
+  &__grid {
+    padding: 3em 0 1em;
+    max-width: 950px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4em;
+
+    .lnbHeading--med {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    grid-gap: 1.5em;
+    color: #fff;
+
+    &-icon {
+      font-size: 4em;
+      width: 130px;
+      height: 130px;
+      border: 6px solid $light-green;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+
+      svg {
+        max-width: 66px;
+      }
+    }
+
+    .green-text {
+      font-size: 1.1em;
+    }
+
+    &:hover {
+      .lnbServiceIcons {
+        &__item {
+          &-icon {
+            background-color: $light-green;
+            color: $blue;
+          }
+        }
+      }
+    }
+  }
+
+  @include mq("phone-wide", "max") {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__item {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  @include mq("phone", "max") {
+    &__item {
+      grid-template-columns: 85px 1fr;
+
+      &-icon {
+        font-size: 2em;
+        width: 85px;
+        height: 85px;
+        border-width: 4px;
+        position: relative;
+        top: -25px;
+      }
+    }
+  }
+}
+
+.lnbHighlightLinks {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+
+  &__link {
+    display: grid;
+    grid-template-columns: 3em 1fr;
+    background: $faded-blue;
+    padding: 1em;
+    grid-gap: 0.75em;
+
+    &-icon {
+      color: $light-green;
+      display: flex;
+      align-items: center;
+      font-size: 1.5em;
+      justify-content: center;
+    }
+
+    &-text {
+      @extend .lnbHeading--med;
+      color: #fff;
+    }
+
+    &:hover {
+      background: $orange;
+
+      .lnbHighlightLinks__link-icon {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.lnbCounterGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+
+  &__item {
+    text-align: center;
+    padding: 6em 1em;
+
+    &-number {
+      font-size: clamp(1rem, 6.75vw, 2.75em);
+      font-weight: 700;
+    }
+
+    &-desc {
+      @extend .lnbHeading--med;
+    }
+
+    span {
+      display: block;
+    }
+  }
+
+  &__vertWhite {
+    @include pos(absolute, 0, 0, 0, calc((100% - 12px) / 2), 1);
+    height: 100%;
+    width: 12px;
+    background: #fff;
+  }
+
+  &__horWhite {
+    @include pos(absolute, calc((100% - 12px) / 2), 0, 0, 0, 1);
+    height: 12px;
+    width: 100%;
+    background: #fff;
+  }
+
+  &__vertCyan {
+    @include pos(absolute, 5px, 0, 0, calc((100% - 2px) / 2), 1);
+    height: calc(100% - 10px);
+    width: 2px;
+    background: $cyan;
+  }
+
+  &__horCyan {
+    @include pos(absolute, calc((100% - 2px) / 2), 0, 0, 5px, 1);
+    height: 2px;
+    width: calc(100% - 10px);
+    background: $cyan;
+  }
+
+  @include mq("phone-wide", max) {
+    &__item {
+      padding: 4em 1em;
+    }
+  }
+}
+
+.lnbFloatingBadge {
+  padding: 0 1em 2em;
+  background: $faded-blue;
+  margin-top: 5em;
+
+  &__badge {
+    margin-top: -5em;
+    width: 10em;
+  }
+
+  &__heading {
+    font-size: clamp(1rem, 6.75vw, 2.1em);
+    display: block;
+    margin: 0.5em 0 0.75em;
+  }
+
+  .hypercore-button {
+    min-width: 150px;
+    margin: 1em 0.5em;
+  }
+}
+
+// End Homepage
+// Interior Styles
+.hypercore-page-title-bar {
+  display: none;
+}
+
+.interior-page-content,
+.interior-page-content-has-sidebar {
+  .so-panel {
+    margin-bottom: 0 !important;
+
+    img {
+      display: block;
+      margin: 1em 0 2em;
+    }
+  }
+
+  .panel-grid {
+    margin-bottom: 0 !important;
+  }
+
+  .so-widget-sow-button {
+    .hypercore-button {
+      margin-top: 0.5em !important;
+      margin-bottom: 1.5em !important;
+    }
+  }
+}
+
+.hyp-checklist {
+  margin-bottom: 2em !important;
+
+  li {
+    &:before {
+      content: url("#{$contentDir}/check-in-circle-green.svg");
+    }
+
+    fa-icon {
+      display: none !important;
+    }
+  }
+}
+
+.hyp-accordion {
+  &__panel {
+    margin-bottom: 0 !important;
+    background: transparent !important;
+
+    &:nth-child(even) {
+      .hyp-accordion__heading {
+        background: #fff;
+      }
+    }
+  }
+
+  &__heading {
+    border: 2px solid var(--heading-background);
+    margin-bottom: 0.5em;
+    display: flex;
+    align-items: center;
+    background: transparent !important;
+    padding: 1em 3em 1em 1em !important;
+
+    &:before {
+      content: "Q";
+      font-size: 1.8em;
+      color: $orange;
+      font-family: "Oswald", sans-serif;
+      margin-right: 0.75em;
+      position: relative;
+      top: -2px;
+    }
+
+    fa-icon {
+      color: $orange;
+    }
+  }
+
+  &__content {
+    grid-gap: 0.7em;
+
+    &:before {
+      content: "A";
+      font-size: 1.8em;
+      color: $orange;
+      font-family: "Oswald", sans-serif;
+      position: relative;
+      top: 4px;
+      left: 3px;
+      display: block;
+      margin-bottom: 0.35em;
+    }
+  }
+}
+
+.hyp-city-page-list {
+  margin-top: 2.5em !important;
+}
+
+.nn-review-footer {
+  background-color: transparent !important;
+}
+
+.nn-samap {
+  &-tc-cont,
+  &-topcity {
+    display: none !important;
+  }
+}
+
+.nn-review-header > time {
+  display: none;
+}
+
+.nn-time-label {
+  display: none;
+}
+
+.nnsamap-tc-cont {
+  display: block !important;
+}
+
+.nn-samap-gravatar {
+  margin: 0 5px 0 0 !important;
+}
+
+.nn-samap-body {
+  margin-top: 15px !important;
+}
+
+.nn-review-footer img {
+  margin: 5px 0 !important;
+}
+
+.fb-like {
+  iframe {
+    display: none !important;
+  }
+}
+
+.sow-tabs {
+  &-tab-container {
+    background-color: transparent !important;
+  }
+}
+
+.clipit-coupon {
+  width: 100%;
+
+  &__save,
+  &__button {
+    background-color: $cyan !important;
+  }
+
+  &__button {
+    color: #fff !important;
+  }
+
+  &__title,
+  &__expiration,
+  &__act {
+    color: $blue !important;
+  }
+
+  &__subtitle,
+  &__fine {
+    color: #333;
+    display: inline-block;
+  }
+}
+
+.coupon-logo-sub {
+  padding: 6px 26px;
+}
+
+.lnb-tabs {
+  padding: 1em 0 !important;
+
+  &__topRow {
+    font-size: clamp(1rem, 7vw, 1.35em) !important;
+    font-weight: 400 !important;
+  }
+
+  &__tab {
+    margin: 0 !important;
+    color: #fff !important;
+    cursor: pointer;
+    padding: 0 !important;
+
+    &--selected {
+      background: $cyan;
+      color: #fff !important;
+    }
+  }
+
+  &__heading {
+    color: #fff;
+    padding: 0.5em 1em !important;
+    border: 1px solid $cyan;
+    display: block;
+  }
+
+  &__content {
+    padding: 0.5em 0;
+  }
+}
+
+.sow-accordion {
+  margin: 0.5em 0 1.5em;
+
+  &-panel-header {
+    background: transparent !important;
+    border: 1px solid $cyan;
+  }
+
+  &-panel-border {
+    background: transparent !important;
+  }
+}
+
+.hyp-post {
+  &__image {
+    height: 9em;
+
+    img {
+      height: 9em;
+      object-fit: contain;
+      padding: 0 2em;
+    }
+  }
+}
+
+.nav-links {
+  .current {
+    color: #fff !important;
+  }
+}
+
+.post-template-default {
+  .attachment-full {
+    display: none;
+  }
+
+  .hypercore-page-title-bar {
+    display: block;
+
+    h1 {
+      @extend .lnbHeading--big;
+    }
+  }
+}
+
+.page-template-page-templatesclear-the-air-interior-php {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 400;
+
+    & * {
+      font-weight: 400;
+    }
+  }
+
+  h2 {
+    color: $light-green;
+  }
+
+  main {
+    .phone-num {
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
+}
+
+.lnbContactPage {
+  padding: 3em 1em;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 500px;
+    max-width: 1260px;
+    margin: 0 auto;
+    grid-gap: 3em;
+
+    @include mq("1024px", "max") {
+      grid-template-columns: 1fr;
+      grid-gap: 1.5em;
+    }
+  }
+
+  &__sidebar {
+    position: relative;
+  }
+
+  &__info {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid transparentize($color: #fff, $amount: 0.7);
+    border-right: none;
+    border-bottom: none;
+    margin: 1.5em 0;
+    position: sticky;
+    top: 12.5em;
+
+    &-heading {
+      color: $light-green;
+    }
+
+    &-item {
+      flex-basis: 50%;
+      border: 1px solid transparentize($color: #fff, $amount: 0.7);
+      border-left: none;
+      border-top: none;
+      padding: 1em 1em 0;
+      flex-grow: 1;
+
+      &--fullWidth {
+        flex-basis: 100%;
+        border: 1px solid transparentize($color: #fff, $amount: 0.7);
+        border-left: none;
+        border-top: none;
+        padding: 1em 1em 0;
+      }
+
+      @include mq("1370px", "max") {
+        top: 9.5em;
+      }
+
+      @include mq("1024px", "max") {
+        position: unset;
+      }
+    }
+  }
+
+  .phone-num {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
+// End Interior Styles
+// Sidebar Styles
+
+.lnbSidebar {
+  position: relative;
+
+  &__logo {
+    max-width: clamp(200px, 100%, 15vw);
+    width: 100%;
+  }
+
+  &__stick {
+    position: sticky;
+    top: 12.5em;
+
+    @include mq("1370px", "max") {
+      top: 9.5em;
+    }
+
+    @include mq("phone-wider", "max") {
+      position: unset;
+    }
+  }
+
+  &__btns {
+    padding: 1.5em 0;
+
+    .hypercore-button {
+      min-width: 180px;
+      margin: 0.5em 1em;
+    }
+  }
+
+  .lnbTaglineImages {
+    @extend .lnbTaglineImages--twoRow;
+  }
+}
+
+// End Sidebar
+// Footer Styles
+
+.footer {
+  padding: 0;
+
+  &__row {
+    display: none;
+  }
+}
+
+.lnbTwoColFooter {
+  background: $blue;
+  text-align: left;
+  padding: 3em 0;
+
+  &__grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__logo {
+    display: block;
+    max-width: 275px;
+  }
+
+  &__half {
+    padding: 0 1em;
+
+    .lnbTaglineImages {
+      font-size: 11px;
+      margin: 3em 0 1em;
+    }
+
+    .display-block,
+    a {
+      line-height: 2.4;
+    }
+
+    a {
+      &.phone-num {
+        font-weight: 700;
+        color: #fff;
+      }
+
+      &:hover {
+        color: $orange;
+      }
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+
+      li {
+        a {
+          color: #fff;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &--left {
+      border-right: 1px solid #fff;
+    }
+
+    &--right {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  @include mq("1060px", "max") {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__half {
+      display: flex;
+      justify-content: flex-start !important;
+
+      .unflex {
+        max-width: 350px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      &--left {
+        border: none;
+      }
+    }
+  }
+}
+
+.lnbSocialLinks {
+  &__link {
+    font-size: 1.8em;
+    margin-right: 0.5em;
+
+    fa-icon {
+      color: $light-green;
+    }
+  }
+}
+
+.lnbCopyright {
+  padding: 2em 1em;
+  background-color: $faded-blue;
+
+  &__links {
+    padding-top: 0.75em;
+
+    a {
+      color: $light-green;
+      text-decoration: underline;
+    }
+  }
+}
+// End Footer

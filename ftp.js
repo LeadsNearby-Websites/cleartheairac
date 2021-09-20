@@ -6,7 +6,7 @@ const Client = require('sftp-client-promise');
 const conn = new Client();
 
 const baseSftpConfig = {
-  host: 'staging.lnbsvcs.com',
+  host: 'web-west.lnbsvcs.com',
   port: 22,
   remoteRoot: 'public_html/wp-content/themes/hypercore-theme-child',
 };
@@ -89,7 +89,7 @@ checkConnection(sftpConfig)
       });
       watcher.on('error', (error) => log.error(error));
       bs.init({
-        proxy: `http://52.73.242.68/~${sftpConfig.username}/`,
+        proxy: `${sftpConfig.liveURL}`,
         ui: false,
       });
     } else {
