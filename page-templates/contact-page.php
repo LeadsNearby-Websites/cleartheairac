@@ -43,6 +43,7 @@ get_header();
         <div class="lnbContactPage__info-item--fullWidth">
           <h4 class="lnbContactPage__info-heading">Address</h4>
           <p class="lnbContactPage__info-info"><?php echo do_shortcode('[business_address]'); ?></p>
+          <p class="lnbContactPage__info-info">18036 County Rd 127Pearland, TX 77581</p>
         </div>
         <div class="lnbContactPage__info-item">
           <h4 class="lnbContactPage__info-heading">Hours</h4>

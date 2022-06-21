@@ -18,6 +18,7 @@ function output_custom_footer() {
         <span class="display-block">24/7 Call Anytime</span>
         <?php echo do_shortcode('[phone_link]'); ?>
         <span class="display-block">133 N Friendswood Dr, #344, Friendswood, TX 77546</span>
+        <span class="display-block">18036 County Rd 127Pearland, TX 77581</span>
         <span class="display-block">Texas HVAC License: TACLA 32678E</span>
       </div>
     </div>
