@@ -53,7 +53,7 @@ function output_custom_header() {
       </span>
       <div class="lnbCustHeader__content-btns">
         <?php echo do_shortcode('[v8_schedule_button form-id="1" heading="Schedule Your Appointment Today" text="Book Online"]'); ?>
-        <a is="hypercore-button" class="hypercore-button lnbBtn--green" target="_blank" href="https://cleartheair.myservicetitan.com/">Pay Online</a>
+        <a is="hypercore-button" class="hypercore-button lnbBtn--green" target="_blank" href="https://www.cleartheairac.com/contact-us/">Contact Us</a>
       </div>
     </div>
   </div>
